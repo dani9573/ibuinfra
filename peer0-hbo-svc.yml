@@ -1,0 +1,22 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: peer0-hbo-myapp
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    run: peer0-hbo-myapp
+
+  ports:
+    - name: peer0-hbo-myapp
+      port: 30751
+      nodePort: 30751
+    - name: chaincode-listen
+      port: 30752
+      nodePort: 30752
+
+  type: NodePort
