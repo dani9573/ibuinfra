@@ -40,7 +40,7 @@ spec:
           value: '[/var/hyperledger/orderer/tls/ca.crt]'
         - name: CORE_VM_DOCKER_HOSTCONFIG_DNS
           value: 10.11.240.10
-        image: hyperledger/fabric-orderer
+        image: hyperledger/fabric-orderer:1.4.2
         name: orderer-myapp
         ports:
         - containerPort: 30750

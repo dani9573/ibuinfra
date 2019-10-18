@@ -12,35 +12,8 @@ spec:
 
   ports:
     - name: peer0-netflix-myapp
-      port: 7051
+      port: 30851
     - name: peer0-netflix-myapp-cc
-      port: 7053
+      port: 30852
 
   type: ClusterIP
-
----
-# Expose the port 30751 as node port -  NEEDED if you
-# are interested in connecting to the Pods from the Host
-# machine - keep in mind you would need the IP for the node
-# port service
-apiVersion: v1
-kind: Service
-metadata:
-  name: peer0-netflix-myapp-nodeport
-
-spec:
-  # This defines which pods are going to be represented by this Service
-  # The service becomes a network endpoint for either other services
-  # or maybe external users to connect to (eg browser)
-  selector:
-    run: peer0-netflix-myapp
-
-  ports:
-    - name: peer0-netflix-myapp-nodeport-751
-      port: 30851
-      nodePort: 30851
-    - name: peer0-netflix-myapp-cc-nodeport-752
-      port: 30852
-      nodePort: 30853
-
-  type: NodePort

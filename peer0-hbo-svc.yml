@@ -14,9 +14,7 @@ spec:
   ports:
     - name: peer0-hbo-myapp
       port: 30751
-      nodePort: 30751
     - name: chaincode-listen
       port: 30752
-      nodePort: 30752
 
-  type: NodePort
+  type: ClusterIP
